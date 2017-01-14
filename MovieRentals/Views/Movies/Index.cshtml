@@ -1,0 +1,29 @@
+﻿@model IEnumerable<MovieRentals.Models.Movie>
+    @{
+        ViewBag.Title = "Index";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
+    @*
+        Using Razer Syntax to use both C# and html
+    *@
+
+    <h2>Movies</h2>
+    <p>
+    @Html.ActionLink("New Movie", "New", "Movies", null, new { @class = "btn btn-primary" })
+    </p>
+
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>Movies</th>
+        <th>Genre</th>
+    </tr>
+    @foreach (var movie in Model)
+    {
+        <tr>
+            <td>@Html.ActionLink(movie.Name, "Edit", "Movies", new { id = movie.Id }, null)</td>
+            <td>@movie.GenreType.Type</td>
+        </tr>
+    }
+</table>
+
