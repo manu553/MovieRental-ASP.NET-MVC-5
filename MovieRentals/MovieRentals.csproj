@@ -215,11 +215,15 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\Api\CustomersController.cs" />
+    <Compile Include="Controllers\Api\MovieController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MoviesController.cs" />
     <Compile Include="Dtos\CustomerDto.cs" />
+    <Compile Include="Dtos\GenreDto.cs" />
+    <Compile Include="Dtos\MembershipTypeDto.cs" />
+    <Compile Include="Dtos\MovieDto.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -294,6 +298,42 @@
     <Compile Include="Migrations\201701030121032_MoviesRequiredUpdate.cs" />
     <Compile Include="Migrations\201701030121032_MoviesRequiredUpdate.Designer.cs">
       <DependentUpon>201701030121032_MoviesRequiredUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701150359496_GenreTypeFix.cs" />
+    <Compile Include="Migrations\201701150359496_GenreTypeFix.Designer.cs">
+      <DependentUpon>201701150359496_GenreTypeFix.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701150407389_AddGenreType.cs" />
+    <Compile Include="Migrations\201701150407389_AddGenreType.Designer.cs">
+      <DependentUpon>201701150407389_AddGenreType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701150418162_Update.cs" />
+    <Compile Include="Migrations\201701150418162_Update.Designer.cs">
+      <DependentUpon>201701150418162_Update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701150447178_nonNullReleaseDate.cs" />
+    <Compile Include="Migrations\201701150447178_nonNullReleaseDate.Designer.cs">
+      <DependentUpon>201701150447178_nonNullReleaseDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701150506474_UpdateDateTimeType.cs" />
+    <Compile Include="Migrations\201701150506474_UpdateDateTimeType.Designer.cs">
+      <DependentUpon>201701150506474_UpdateDateTimeType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701150510091_creatingMovies.cs" />
+    <Compile Include="Migrations\201701150510091_creatingMovies.Designer.cs">
+      <DependentUpon>201701150510091_creatingMovies.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701150513485_dropMovies.cs" />
+    <Compile Include="Migrations\201701150513485_dropMovies.Designer.cs">
+      <DependentUpon>201701150513485_dropMovies.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701150514243_AdjustingMovies.cs" />
+    <Compile Include="Migrations\201701150514243_AdjustingMovies.Designer.cs">
+      <DependentUpon>201701150514243_AdjustingMovies.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701150545136_customersUpdated.cs" />
+    <Compile Include="Migrations\201701150545136_customersUpdated.Designer.cs">
+      <DependentUpon>201701150545136_customersUpdated.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -620,6 +660,33 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201701030121032_MoviesRequiredUpdate.resx">
       <DependentUpon>201701030121032_MoviesRequiredUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701150359496_GenreTypeFix.resx">
+      <DependentUpon>201701150359496_GenreTypeFix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701150407389_AddGenreType.resx">
+      <DependentUpon>201701150407389_AddGenreType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701150418162_Update.resx">
+      <DependentUpon>201701150418162_Update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701150447178_nonNullReleaseDate.resx">
+      <DependentUpon>201701150447178_nonNullReleaseDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701150506474_UpdateDateTimeType.resx">
+      <DependentUpon>201701150506474_UpdateDateTimeType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701150510091_creatingMovies.resx">
+      <DependentUpon>201701150510091_creatingMovies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701150513485_dropMovies.resx">
+      <DependentUpon>201701150513485_dropMovies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701150514243_AdjustingMovies.resx">
+      <DependentUpon>201701150514243_AdjustingMovies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701150545136_customersUpdated.resx">
+      <DependentUpon>201701150545136_customersUpdated.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

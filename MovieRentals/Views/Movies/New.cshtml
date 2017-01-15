@@ -15,13 +15,13 @@
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.ReleaseDate)
-        @Html.TextBoxFor(m => m.ReleaseDate, new { @class = "form-control" })
+        @Html.TextBoxFor(m => m.ReleaseDate, "{0:d MMM yyyy}", new { @class = "form-control" })
         @Html.ValidationMessageFor(m => m.ReleaseDate)
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.GenreId)
-        @Html.DropDownListFor(m => m.GenreId, new SelectList(Model.GenreType, "Id", "Type"), "Select Genre Type", new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.GenreId)
+        @Html.LabelFor(m => m.GenreTypeId)
+        @Html.DropDownListFor(m => m.GenreTypeId, new SelectList(Model.GenreType, "Id", "Type"), "Select Genre Type", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.GenreTypeId)
 
     </div>
     <div class="form-group">

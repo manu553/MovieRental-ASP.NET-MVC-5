@@ -26,8 +26,12 @@ namespace MovieRentals.Controllers
         // GET: Movies
         public ActionResult Index()
         {
+            /*
+             * Now being handled using Web APIs
             var movie = _context.Movies.Include(m => m.GenreType).ToList();
             return View(movie);
+            */
+            return View();
         }
 
 
@@ -71,8 +75,8 @@ namespace MovieRentals.Controllers
 
             if (movie.Id == 0)
             {
+                movie.DateAdded = DateTime.Now;
                 _context.Movies.Add(movie);
-
             }
             else
             {
@@ -80,7 +84,7 @@ namespace MovieRentals.Controllers
 
                 movieInDb.Name = movie.Name;
                 movieInDb.ReleaseDate = movie.ReleaseDate;
-                movieInDb.GenreId = movie.GenreId;
+                movieInDb.GenreTypeId = movie.GenreTypeId;
                 movieInDb.Stock = movie.Stock;
 
             }

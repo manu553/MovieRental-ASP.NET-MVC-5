@@ -26,9 +26,13 @@ namespace MovieRentals.Controllers
         // GET: Customer
         public ActionResult Index()
         {
+            /*
+             * No longer needed with web API
             var customers = _context.Customers.Include(c => c.MembershipType).ToList();
 
             return View(customers);
+            */
+            return View();
         }
 
         public ActionResult Details(int id)
@@ -48,6 +52,7 @@ namespace MovieRentals.Controllers
             var membershipTypes = _context.MembershipTypes.ToList();
             var viewModel = new CustomerFormViewModel
             {
+                Customer = new Customer(),
                 MembershipTypes = membershipTypes
             };
 
@@ -79,7 +84,7 @@ namespace MovieRentals.Controllers
 
                 customerInDb.Name = customer.Name;
                 customerInDb.BirthDate = customer.BirthDate;
-                customerInDb.MembershipTypeID = customer.MembershipTypeID;
+                customerInDb.MembershipTypeId = customer.MembershipTypeId;
                 customerInDb.IsSubscribedToNewsletter = customer.IsSubscribedToNewsletter;
 
             }

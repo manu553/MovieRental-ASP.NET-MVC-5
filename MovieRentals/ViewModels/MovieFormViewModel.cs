@@ -26,7 +26,7 @@ namespace MovieRentals.ViewModels
 
         [Required]
         [Display(Name = "Genre")]
-        public byte? GenreId { get; set; }
+        public int? GenreTypeId { get; set; }
 
         public string Title
         {
@@ -48,7 +48,7 @@ namespace MovieRentals.ViewModels
             Name = movie.Name;
             ReleaseDate = movie.ReleaseDate;
             Stock = movie.Stock;
-            GenreId = movie.GenreId;
+            GenreTypeId = movie.GenreTypeId;
         }
     }
 }
