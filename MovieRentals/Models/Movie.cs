@@ -24,6 +24,8 @@ namespace MovieRentals.Models
         [StockCantBeZero]
         public int Stock { get; set; }
 
+        public byte NumberAvailable { get; set; }
+
         public Genre GenreType { get; set; }
 
         [Required]

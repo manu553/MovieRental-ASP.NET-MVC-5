@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using MovieRentals.Models;
 using MovieRentals.ViewModels;
+using System.Runtime.Caching;
 
 namespace MovieRentals.Controllers
 {
@@ -32,6 +33,13 @@ namespace MovieRentals.Controllers
 
             return View(customers);
             */
+
+            if(MemoryCache.Default["Genres"] == null)
+            {
+                MemoryCache.Default["Genres"] = _context.GenreTypes.ToList();
+            }
+
+            var genres = MemoryCache.Default["Genres"] as IEnumerable<Genre>;
             return View();
         }
 

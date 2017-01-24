@@ -156,7 +156,8 @@ namespace MovieRentals.Controllers
                 {
                     UserName = model.Email,
                     Email = model.Email,
-                    DrivingLicense = model.DriverLicense
+                    DrivingLicense = model.DriverLicense,
+                    Phone = model.Phone
                 };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)

@@ -48,6 +48,26 @@
       <HintPath>..\packages\AutoMapper.4.1.0\lib\net45\AutoMapper.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Glimpse.Ado, Version=1.7.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Glimpse.Ado.1.7.3\lib\net45\Glimpse.Ado.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Glimpse.AspNet, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Glimpse.AspNet.1.8.0\lib\net45\Glimpse.AspNet.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Glimpse.Core, Version=1.8.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Glimpse.1.8.6\lib\net45\Glimpse.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Glimpse.EF6, Version=1.6.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Glimpse.EF6.1.6.5\lib\net45\Glimpse.EF6.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Glimpse.Mvc5, Version=1.5.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Glimpse.Mvc5.1.5.3\lib\net45\Glimpse.Mvc5.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -88,6 +108,7 @@
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Runtime.Caching" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -216,14 +237,18 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\Api\CustomersController.cs" />
     <Compile Include="Controllers\Api\MovieController.cs" />
+    <Compile Include="Controllers\Api\NewRentalsController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MoviesController.cs" />
+    <Compile Include="Controllers\RentalsController.cs" />
     <Compile Include="Dtos\CustomerDto.cs" />
     <Compile Include="Dtos\GenreDto.cs" />
     <Compile Include="Dtos\MembershipTypeDto.cs" />
     <Compile Include="Dtos\MovieDto.cs" />
+    <Compile Include="Dtos\NewRentalDto.cs" />
+    <Compile Include="GlimpseSecurityPolicy.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -343,6 +368,26 @@
     <Compile Include="Migrations\201701182233471_AddDrivingLicenseToUser.Designer.cs">
       <DependentUpon>201701182233471_AddDrivingLicenseToUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201701232109417_AddPhoneNumberToRegistration.cs" />
+    <Compile Include="Migrations\201701232109417_AddPhoneNumberToRegistration.Designer.cs">
+      <DependentUpon>201701232109417_AddPhoneNumberToRegistration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701232112509_AddedPhoneToRegistration.cs" />
+    <Compile Include="Migrations\201701232112509_AddedPhoneToRegistration.Designer.cs">
+      <DependentUpon>201701232112509_AddedPhoneToRegistration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701232118167_FixingPhoneIssues.cs" />
+    <Compile Include="Migrations\201701232118167_FixingPhoneIssues.Designer.cs">
+      <DependentUpon>201701232118167_FixingPhoneIssues.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701232241194_createdRentalModel.cs" />
+    <Compile Include="Migrations\201701232241194_createdRentalModel.Designer.cs">
+      <DependentUpon>201701232241194_createdRentalModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701232253285_AddingNumberAvailableToMovieModel.cs" />
+    <Compile Include="Migrations\201701232253285_AddingNumberAvailableToMovieModel.Designer.cs">
+      <DependentUpon>201701232253285_AddingNumberAvailableToMovieModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -352,6 +397,7 @@
     <Compile Include="Models\MembershipType.cs" />
     <Compile Include="Models\Min18YearsIfAMember.cs" />
     <Compile Include="Models\Movie.cs" />
+    <Compile Include="Models\Rental.cs" />
     <Compile Include="Models\RoleName.cs" />
     <Compile Include="Models\StockCantBeZero.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -471,12 +517,17 @@
     <Content Include="Content\DataTables\images\sort_desc.png" />
     <Content Include="Content\DataTables\images\sort_desc_disabled.png" />
     <Content Include="Content\DataTables\swf\flashExport.swf" />
+    <Content Include="Content\toastr.css" />
+    <Content Include="Content\toastr.min.css" />
+    <Content Include="Content\typeahead.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
+    <Content Include="Scripts\bloodhound.js" />
+    <Content Include="Scripts\bloodhound.min.js" />
     <Content Include="Scripts\bootbox.js" />
     <Content Include="Scripts\bootbox.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -486,6 +537,8 @@
     </Content>
     <Content Include="Content\DataTables\css\mixins.scss" />
     <Content Include="Content\DataTables\css\common.scss" />
+    <Content Include="Content\toastr.scss" />
+    <Content Include="Content\toastr.less" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.min.js" />
@@ -561,6 +614,12 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\toastr.js" />
+    <Content Include="Scripts\toastr.min.js" />
+    <Content Include="Scripts\typeahead.bundle.js" />
+    <Content Include="Scripts\typeahead.bundle.min.js" />
+    <Content Include="Scripts\typeahead.jquery.js" />
+    <Content Include="Scripts\typeahead.jquery.min.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -604,6 +663,7 @@
     <Content Include="Views\Customer\CustomerForm.cshtml" />
     <Content Include="Views\Movies\New.cshtml" />
     <Content Include="Views\Movies\ReadOnlyList.cshtml" />
+    <Content Include="Views\Rentals\New.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -703,6 +763,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201701182233471_AddDrivingLicenseToUser.resx">
       <DependentUpon>201701182233471_AddDrivingLicenseToUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701232109417_AddPhoneNumberToRegistration.resx">
+      <DependentUpon>201701232109417_AddPhoneNumberToRegistration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701232112509_AddedPhoneToRegistration.resx">
+      <DependentUpon>201701232112509_AddedPhoneToRegistration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701232118167_FixingPhoneIssues.resx">
+      <DependentUpon>201701232118167_FixingPhoneIssues.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701232241194_createdRentalModel.resx">
+      <DependentUpon>201701232241194_createdRentalModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701232253285_AddingNumberAvailableToMovieModel.resx">
+      <DependentUpon>201701232253285_AddingNumberAvailableToMovieModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

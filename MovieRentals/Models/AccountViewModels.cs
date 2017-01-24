@@ -12,6 +12,11 @@ namespace MovieRentals.Models
         [Required]
         [Display(Name = "Driving License")]
         public string DrivingLicense { get; set; }
+
+        [Required]
+        [StringLength(50)]
+        [Display(Name = "Phone")]
+        public string Phone { get; set; }
     }
 
     public class ExternalLoginListViewModel
@@ -71,6 +76,11 @@ namespace MovieRentals.Models
         [Required]
         [Display(Name = "Driving License")]
         public string DriverLicense { get; set; }
+
+        [Required]
+        [StringLength(50)]
+        [Display(Name = "Phone")]
+        public string Phone { get; set; }
 
         [Required]
         [EmailAddress]

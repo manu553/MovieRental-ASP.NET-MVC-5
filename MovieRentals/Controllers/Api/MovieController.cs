@@ -21,12 +21,18 @@ namespace MovieRentals.Controllers.Api
         }
 
         // GET api/movie
-        public IEnumerable<MovieDto> GetMovies()
+        public IEnumerable<MovieDto> GetMovies(string query = null)
         {
-            return _context.Movies
+            var movieQuery = _context.Movies
                 .Include(c => c.GenreType)
+                .Where(m => m.NumberAvailable > 0);
+
+            if (!String.IsNullOrWhiteSpace(query))
+                movieQuery = movieQuery.Where(m => m.Name.Contains(query));
+
+            return movieQuery
                 .ToList()
-                .Select(Mapper.Map<Movie,MovieDto>);
+                .Select(Mapper.Map<Movie, MovieDto>);
         }
 
         // GET api/movie/1
